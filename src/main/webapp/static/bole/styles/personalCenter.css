@@ -1,0 +1,165 @@
+/**
+* @file:personalCenter个人中心(准考证打印print,成绩查询query,开始须知BeganNotice,基本信息Message)
+* @author:llj
+*
+* @update:2016-03-02
+*/
+
+/*base*/
+/*wrap*/
+.personalCenter-container{
+    width:826px;
+    margin:0 auto;
+}
+
+/*title*/
+.personalCenter-title {
+    text-align: center;
+    margin-top: 84px;
+}
+
+/*menu*/
+.personalCenter-menu {
+    width:100%;
+    float : left;
+    margin-top:60px;
+}
+
+.personalCenter-menu > ul > li {
+    width:198px;
+    float: left;
+}
+.personalCenter-menu > ul > li > a {
+    float: left;
+}
+.personalCenter-menu img {
+    float: left;
+}
+.personalCenter-menu > ul > li + li {
+    margin-left:11px;
+}
+
+/*main*/
+.personalCenterMain {
+    background-color: #fff;
+    padding: 30px;
+}
+
+.personalCenter-down1 ,
+.personalCenter-down2 ,
+.personalCenter-down3 ,
+.personalCenter-down4 {
+    height:26px;
+}
+.personalCenter-down1 img  ,
+.personalCenter-down2 img  ,
+.personalCenter-down3 img  ,
+.personalCenter-down4 img  {
+    float: left;
+}
+
+
+/*准考证打印print*/
+.personalCenter-down3 {
+    margin-left: 507px;
+}
+.personalCenterPrint-table {
+    width:100%;
+    font-size: 14px;
+    border-right:1px solid #777777;
+    border-top: 1px solid #777777;
+}
+.personalCenterPrint table>thead>tr>td ,
+.personalCenterPrint table>tbody>tr>td {
+    padding-right: 7px;
+    padding-left: 7px;
+    border-bottom:1px solid #777777;
+    border-left:1px solid #777777;
+}
+.personalCenterPrint table>thead>tr>td {
+    font-size: 18px;
+    text-align: center;
+    font-size: 24px;
+}
+.personalCenterPrint table>tbody>tr:first-child {
+    font-size: 16px;
+    text-align: center;
+}
+.personalCenterPrint table>tbody>tr>td {
+    line-height: 25px;
+}
+.personalCenterPrint-message {
+    margin-top: 14px;
+}
+
+
+/*成绩查询query*/
+.personalCenterQuery {
+    font-size: 14px;
+    line-height: 25px;
+}
+.personalCenter-down4 {
+    margin-left: 716px;
+}
+.personalCenterQuery ul {
+    margin-top: 10px;
+}
+.personalCenterQuery ul>li{
+    width:50%;
+    float: left;
+}
+.personalCenterQuery ul>li>span {
+    width:184px;
+    float: left;
+    text-align: right;
+}
+.personalCenterQuery ul>li:nth-child(2n)>span{
+    width:126px;
+}
+
+
+/*开始须知BeganNotice*/
+.personalCenterBeganNotice {
+    font-size: 14px;
+}
+.personalCenter-down2 {
+    margin-left:295px;
+}
+.personalCenterBeganNotice p {
+    font-size: 14px;
+    line-height: 30px;
+    text-indent: 2em;
+}
+
+
+/*基本信息Message*/
+.personalCenterMessage {
+    font-size: 14px;
+}
+.personalCenter-down1 {
+    margin-left:84px;
+}
+.personalCenterMessage-table {
+    width:704px;
+    margin: 0 auto;
+}
+.personalCenterMessage-table>thead>tr>td ,
+.personalCenterMessage-table>tbody>tr>td {
+    padding:8px 7px;
+}
+.personalCenterMessage-table>thead>tr>td {
+    font-size: 18px;
+}
+.personalCenterMessage-table>tbody>tr>td:first-child {
+    
+    text-align: right;
+    vertical-align: top;
+}
+.personalCenterMessage-table>tbody>tr>td:nth-child(2) {
+    width:400px;
+}
+
+.personalCenterMessage-table>tbody>tr>td {
+    line-height: 25px;
+    vertical-align:top;
+}

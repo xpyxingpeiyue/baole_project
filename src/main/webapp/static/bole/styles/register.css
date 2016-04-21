@@ -1,0 +1,63 @@
+/**
+* @file:register注册
+* @author:llj
+*
+* @update:2016-03-01
+*/
+
+
+
+
+/*form*/
+.register-form {
+    line-height: 34px;
+    font-size: 14px;
+    margin-top: 50px;
+    
+}
+.register-form-title {
+    font-size:18px;
+    padding-top: 50px;
+    padding-left:130px;
+}
+.register-form .form-group {
+    margin-top: 10px;
+}
+/*top*/
+.register-form-top {
+    width:100%;
+}
+
+/*fromLeft*/
+.register-form-labelLeft {
+    width:250px;
+    float: left;
+    text-align: right;
+}
+.register-form-labelLeft input {
+    width:250px;
+    float: left;
+}
+/*uplad*/
+.register-form-upload {
+    float: left;
+    padding-left: 102px;
+    margin-top: 10px;
+}
+.register-form-textW100 {
+    width:554px;
+}
+.register-form-textW40 {
+    width:158px;
+}
+.register-form-inline {
+    width:100%;
+    float: left;
+    padding-right: 19.6%;
+    padding-left: 13.3%;
+}
+.register-form-inline .form-group:first-child {
+    width:277px;
+    float: left;
+    text-align: right;
+}

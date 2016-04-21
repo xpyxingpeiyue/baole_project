@@ -1,0 +1,480 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: #000;
+    background: #FFF;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+
+input, button, textarea, select {
+    *font-size: 100%;
+}
+
+body {
+    line-height: 1.4;
+    font-size: 12px;
+    font: 14px/1.5 arial, "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+}
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+sup, sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+:link, :visited {
+    text-decoration: none;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix:after, .wrap:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+/*float*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fn {
+    float: none;
+}
+
+/*text-align*/
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+/*clear*/
+.clear-left {
+    clear: left;
+}
+
+.clear-right {
+    clear: right;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/*padding-top*/
+.pt10 {
+    padding-top: 10px;
+}
+
+.pt20 {
+    padding-top: 20px;
+}
+
+.pt30 {
+    padding-top: 30px;
+}
+
+.pt40 {
+    padding-top: 40px;
+}
+
+.pt50 {
+    padding-top: 50px;
+}
+
+/*padding-bottton*/
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.pb30 {
+    padding-bottom: 30px;
+}
+
+.pb40 {
+    padding-bottom: 40px;
+}
+
+.pb50 {
+    padding-bottom: 50px;
+}
+
+/*padding-left*/
+.pl10 {
+    padding-left: 10px;
+}
+
+.pl20 {
+    padding-left: 20px;
+}
+
+.p130 {
+    padding-left: 30px;
+}
+
+.p140 {
+    padding-left: 40px;
+}
+
+.p150 {
+    padding-left: 50px;
+}
+
+/*margin-top*/
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+.mt50 {
+    margin-top: 50px;
+}
+
+/*margin-left*/
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.ml30 {
+    margin-left: 30px;
+}
+
+.ml40 {
+    margin-left: 40px;
+}
+
+.ml50 {
+    margin-left: 50px;
+}
+
+/*margin-bottom*/
+.mb10 {
+    margin-bottom: 40px;
+}
+
+.mb20 {
+    margin-bottom: 40px;
+}
+
+.mb30 {
+    margin-bottom: 40px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.mb50 {
+    margin-bottom: 50px;
+}
+
+/*font*/
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+.font22 {
+    font-size: 22px;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font30 {
+    font-size: 30px;
+}
+
+.font32 {
+    font-size: 32px;
+}
+
+.font40 {
+    font-size: 40px;
+}
+
+.font68 {
+    font-size: 68px;
+}
+
+.font82 {
+    font-size: 82px
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+.font-normal {
+    font-weight: normal;
+}
+
+/*base color*/
+.text-grey {
+    color: #726e6e;
+}
+
+.text-blue {
+    color: #8fb5d9;
+}
+
+.text-red {
+    color: #F00;
+}
+
+.text-w {
+    color: #fff;
+}
+
+.text-org {
+    color: #f54d1a;
+}
+
+/*center border*/
+.font-through {
+    text-decoration: line-through;
+}
+
+/*font color*/
+.font-12-gray {
+    font-size: 12px;
+    color: #5c5c5c;
+    font-family: "Microsoft YaHei";
+}
+
+.font-18-org {
+    font-size: 18px;
+    color: #f46f27;
+    font-family: "Microsoft YaHei";
+}
+
+.font-12-w {
+    font-size: 12px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+}
+
+.font-14-wb {
+    font-size: 14px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+}
+
+/*font*/
+.font-SimSun {
+    font-family: "SimSun";
+}
+
+.font-my {
+    font-family: "Microsoft YaHei";
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*input*/
+.form input[type=text] ,
+.form input[type=email] ,
+.form input[type=password] ,
+.form select {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.form input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+/*btn*/
+.btn {
+    color: #fff;
+    padding: 10px 40px;
+    cursor: pointer;
+    border: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.btn-gray {
+    background-color: #7f7f7f;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+}
+
+
+/*wrap*/
+.register-container {
+    width:1000px;
+    margin:0 auto;
+}
+/*header*/
+.register-header {
+    width: 100%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+}
+.register-logo {
+    float: left;
+    margin-top: 14px;
+}
+.register-header-a {
+    color:#ff0000;
+    float: right;
+}
+.register-header-a img {
+    position: relative;
+    top: 3px;
+}

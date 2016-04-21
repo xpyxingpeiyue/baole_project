@@ -1,0 +1,35 @@
+/**
+* @file:examineeNotice考生须知
+* @author:llj
+*
+* @update:2016-03-01
+*/
+
+
+.examineeNotice-container {
+    width:1000px;
+    margin:0 auto;
+}
+
+/*wrap*/
+.examineeNotice-wrap {
+    color:#2b2b2b;
+    font-size: 16px;
+}
+
+/*title*/
+.examineeNotice-wrap h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 120px;
+}
+
+/*p*/
+.examineeNotice-p {
+    font-size: 18px;
+    margin-top: 40px;
+}
+.examineeNotice-p p {
+    line-height: 30px;
+}
+

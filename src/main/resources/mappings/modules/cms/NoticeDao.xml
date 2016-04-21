@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.cms.dao.NoticeDao">
+    <select id="findList" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_test_info st where classid=#{classid} ORDER BY st.id DESC
+	</select>
+	<select id="findListExam" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_exam_info si where classid=#{classid} ORDER BY si.id asc
+	</select>
+	
+	
+	<select id="findById" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_test_info si where si.id=#{id}
+	</select>
+	<select id="findByExamId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_exam_info sf where sf.id=#{id}
+	
+	</select>
+	
+	<select id="findListByStart" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_start_info si where classid=#{classid} ORDER BY si.id DESC
+	</select>
+	
+	<insert id="saveNotice" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	insert into sys_test_info(classid,content) values(#{classid},#{content})
+	</insert>
+	<update id="updateNotice" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	update sys_test_info set content=#{content} where id=#{id}
+	</update>
+	<delete id="deleteById" parameterType="int">
+	delete  from sys_test_info where id=#{id}
+	</delete>
+	
+	<insert id="saveNoticeByExam" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	insert into sys_exam_info(classid,content) values(#{classid},#{content})
+	</insert>
+	
+	<update id="updateNoticeByExam" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	update sys_exam_info set content=#{content} where id=#{id}
+	</update>
+	
+	<delete id="deleteByExamId" parameterType="int" >
+	delete  from sys_exam_info where id=#{id}
+	</delete>
+	
+	<select id="findListByid" parameterType="String"  resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_test_info where classid=#{classid} order by id DESC
+	</select>
+	<select id="findListByExamId" parameterType="String" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_exam_info where classid=#{classid} order by id
+	</select>
+	
+	<select id="findListByStartId" parameterType="String"  resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_start_info where classid=#{classid} order by id
+	</select>
+	<insert id="saveStartNotice" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice" >
+	insert into sys_start_info(classid,content) values(#{classid},#{content})
+	</insert>
+	<update id="updateStartNotice" parameterType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	update sys_start_info set content=#{content} where id=#{id}
+	</update>
+	<delete id="deleteStart" parameterType="int">
+	delete from sys_start_info where id=#{id}
+	</delete>
+	
+	<select id="findByStartId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Notice">
+	select * from sys_start_info where id=#{id}
+	</select>
+</mapper>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.sys.dao.RegeistDao">
+			
+	<insert id="insert" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+		INSERT INTO sys_stu_info(
+			
+			idcard, 
+			logname, 
+			password, 
+			sex, 
+			address, 
+			national, 
+			father_name, 
+			mother_name, 
+			father_work, 
+			mother_work, 
+			father_phone, 
+			mother_phone, 
+			graduate, 
+			home, 
+			special, 
+			special_class, 
+			number, 
+			picture, 
+			examination,
+			zw
+			
+		) VALUES (
+		 
+			
+			#{idcard}, 
+			#{logname}, 
+			#{password}, 
+			#{sex}, 
+			#{address}, 
+			#{national}, 
+			#{fatherName}, 
+			#{motherName}, 
+			#{fatherWork}, 
+			#{motherWork}, 
+			#{fatherPhone}, 
+			#{motherPhone}, 
+			#{graduate}, 
+			#{home}, 
+			#{special}, 
+			#{specialClass}, 
+			#{number}, 
+			#{picture}, 
+			#{examination},
+			#{zw}
+		)
+	</insert>
+	
+	<!-- findByidcard -->
+	<select id="findByIdCard"
+		parameterType="String"
+		resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+		select * from sys_stu_info 
+		where idcard=#{idcard}
+	</select>
+	<update id="update" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	update sys_stu_info set 
+			
+			logname=#{logname},
+			password=#{password},
+		
+			address=#{address},
+			national=#{national},
+			father_name=#{fatherName},
+			mother_name=#{motherName},
+			father_work=#{fatherWork},
+			mother_work=#{motherWork},
+			father_phone=#{fatherPhone},
+			mother_phone=#{motherPhone},
+			graduate=#{graduate},
+			home=#{home}
+			
+		where idcard=#{idcard}
+	</update>
+	<select id="findBySpecialName" parameterType="int" resultType="String" >
+	select name from sys_specil_class where id=#{id}
+	</select>
+	<select id="findBySpecialClass" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist" resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	select * from sys_stu_info si where si.special_class=#{specialClass} order by si.number asc,si.zw asc
+	</select>
+	<select id="findList" resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	select *  from sys_stu_info si where si.special=#{special}
+	  <if test="idcard != null and idcard != ''">
+			AND si.idcard like 
+					CONCAT('%', #{idcard}, '%')
+		</if>
+		<if test="logname != null and logname != ''">
+			AND si.logname like 
+					CONCAT('%', #{logname}, '%')
+		</if>
+		<if test="number != null and number != ''">
+			AND si.number like 
+					CONCAT('%', #{number}, '%')
+		</if>
+		<if test="specialClass != null and specialClass != ''">
+			AND si.special_class =#{specialClass}
+		</if>
+	  order by si.number asc,si.zw asc
+	</select>
+	
+	<select id="findListByClass" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist" resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	select * from sys_stu_info si where si.special_class=#{specialClass}
+	<if test="idcard != null and idcard != ''">
+			AND si.idcard like 
+					CONCAT('%', #{idcard}, '%')
+		</if>
+		<if test="logname != null and logname != ''">
+			AND si.logname like 
+					CONCAT('%', #{logname}, '%')
+		</if>
+	 order by si.zw asc,si.id asc
+	</select>
+	<select id="findListByGrade" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist" resultType="hashmap">
+	
+	select * from sys_stu_info si where si.special_class=#{specialClass}
+	<if test="idcard != null and idcard != ''">
+			AND si.idcard like 
+					CONCAT('%', #{idcard}, '%')
+		</if>
+		<if test="logname != null and logname != ''">
+			AND si.logname like 
+					CONCAT('%', #{logname}, '%')
+		</if>
+		and idcard in
+	   <foreach item="item" index="index" collection="grades" open="(" separator="," close=")">
+	    #{item.idcard}
+	    </foreach>
+	 order by si.zw asc,si.id asc
+	
+	
+	</select>
+	<select id="findByRId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist" >
+	select * from sys_stu_info si where si.id=#{id}
+	
+	</select>
+	<delete id="deleteById" parameterType="int">
+	delete from sys_stu_info where id=#{id}
+	</delete>
+	<select id="findBySpecialId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	select * from sys_stu_info where special=#{id}
+	</select>
+	
+	<select id="findByjs" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.KCJStc">
+	select * from sys_kc_js_tc where status=#{status} order by id asc
+	</select>
+	<!-- 特长考场天数 -->
+	<select id="findByjstc" resultType="int">
+	select count(*) from sys_kc_js_tc
+	</select>
+	<insert id="insertJStc" parameterType="com.thinkgem.jeesite.modules.sys.entity.KCJStc" >
+	insert into sys_kc_js_tc(number,count,status) values(#{number},#{count},#{status})
+	</insert>
+	<update id="updateJStc" parameterType="com.thinkgem.jeesite.modules.sys.entity.KCJStc">
+	update sys_kc_js_tc set number=#{number},count=#{count},status=#{status} where id=#{id}
+	</update>
+	
+	<!-- 插入kchang -->
+	<insert id="insertToKC" parameterType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	insert into sys_kc_info(id,tc,number,ksh,zw) values(#{id},#{tc},#{number},#{ksh},#{zw})
+	</insert>
+	
+	<select id="findByKcId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	select * from sys_kc_info where id=#{id}
+	</select>
+	<delete id="deleteByKcInfoId" parameterType="int">
+	delete from sys_kc_info where id=#{id}
+	</delete>
+	
+	
+	<insert id="insertToKCNotId" parameterType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	insert into sys_kc_info(tc,number,ksh,zw) values(#{tc},#{number},#{ksh},#{zw})
+	
+	</insert>
+	
+	
+	
+	<!-- 查询备份表 -->
+	<select id="findByKCBFtc" resultType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	select * from sys_kc_bf where tc=#{tc} order by id asc
+	</select>
+	<!-- 删除备份表的一天数据根据id的唯一性 -->
+	<delete id="deleteByBF" parameterType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	delete from  sys_kc_bf where id=#{id}
+	
+	</delete>
+	
+	<!-- 华师班统计表 -->
+	<select id="findByjsHS" resultType="int">
+	select count(*) from sys_kc_js
+	</select>
+	<insert id="insertJS" parameterType="com.thinkgem.jeesite.modules.sys.entity.KCJS" >
+	insert into sys_kc_js(number,count,status) values(#{number},#{count},#{status})
+	</insert>
+	
+	<select id="findByHS" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.KCJS">
+	select * from sys_kc_js where status=#{status} order by id asc
+	</select>
+	<update id="updateJS" parameterType="com.thinkgem.jeesite.modules.sys.entity.KCJS">
+	update sys_kc_js set number=#{number},count=#{count},status=#{status} where id=#{id}
+	</update>
+	<!-- 删除操作 -->
+	<delete id="deleteByExam" parameterType="string">
+	delete from sys_kc_info where ksh=#{exam}
+	</delete>
+	<select id="findByExamKC" parameterType="string" resultType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	select * from sys_kc_info where ksh=#{exam}
+	</select>
+	<insert id="insertToBF" parameterType="com.thinkgem.jeesite.modules.sys.entity.KaoChang">
+	insert into sys_kc_bf(id,tc,number,ksh,zw) values(#{id},#{tc},#{number},#{ksh},#{zw})
+	</insert>
+	
+	<update id="saveAll" parameterType="com.thinkgem.jeesite.modules.sys.entity.Regeist">
+	update sys_stu_info set 
+			logname=#{logname},
+			password=#{password},
+			address=#{address},
+			national=#{national},
+			father_name=#{fatherName},
+			mother_name=#{motherName},
+			father_work=#{fatherWork},
+			mother_work=#{motherWork},
+			father_phone=#{fatherPhone},
+			mother_phone=#{motherPhone},
+			graduate=#{graduate},
+			home=#{home}
+		where id=#{id}
+	
+	</update>
+	
+	<delete id="deleteBySpecial" parameterType="int">
+	delete from sys_stu_info where special=#{special}
+	</delete>
+	<delete id="deleteByKcBf" parameterType="int">
+	delete from sys_kc_bf where tc=#{st}
+	</delete>
+	<delete id="deleteByKcInfo" parameterType="int">
+	delete from sys_kc_info where tc=#{st}
+	</delete>
+	<delete id="deleteByKcJs" parameterType="string">
+	delete from sys_kc_js where status=#{st}
+	</delete>
+	<delete id="deleteByKcJsTc" parameterType="string">
+	delete from sys_kc_js_tc where status=#{st}
+	</delete>
+	
+	
+	<delete id="deleteByKcBfIn" >
+	delete from sys_kc_bf where tc in(1,2,3,4,5)
+	</delete>
+	<delete id="deleteByKcInfoIn" >
+	delete from sys_kc_info where tc in(1,2,3,4,5)
+	</delete>
+	
+	<delete id="deleteByKcJsTcIn" parameterType="string">
+	delete from sys_kc_js_tc where status  in('1','2','3','4','5')
+	</delete>
+	
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.sys.dao.CourseDao">
+			
+	<select id="findBySpecialId"
+		parameterType="int"
+		resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+		select * from sys_exam_course
+		where special=#{special}
+	</select>
+	
+	<select id="findByIdCard"
+		parameterType="String"
+		resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+		select sec.* from sys_exam_course sec 
+		join sys_class_course scc on  sec.id=scc.course_id
+		join sys_stu_info sti on scc.class_id=sti.special_class 
+		where sti.idcard =#{idcard}
+	</select>
+
+	<!-- 查询课程考试时间用一个表就行 -->
+	<select id="findByStatus" parameterType="int"
+		resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+		select * from sys_exam_course where status=#{sc}
+		
+		</select>
+	
+	<select id="findByExamination" parameterType="string" resultMap="resultCourseGrade">
+       select ssc.id,ssc.examination,ssc.score,sec.id,sec.name,sec.time from sys_stu_info sti 
+       join sys_stu_course ssc on sti.examination=ssc.examination
+       join sys_exam_course sec on ssc.name=sec.id 
+       where sti.examination=#{examination}
+    </select>
+     
+    <resultMap type="com.thinkgem.jeesite.modules.sys.entity.Grade" id="resultCourseGrade">
+        <id property="id" column="id"/>
+        <result property="examination" column="examination"/>
+        <result property="score" column="score"/>
+         <association property="course" javaType="com.thinkgem.jeesite.modules.sys.entity.Course">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="time" column="time" />            
+        </association>       
+    </resultMap>
+	<select id="findCourseList" resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	select * from sys_exam_course
+	</select>
+	<select id="findList" resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	select * from sys_exam_course s where special=#{special} ORDER BY s.id DESC
+	</select>
+	<select id="findCount" resultType="Long">
+	select count(1) from sys_exam_course 
+	</select>
+	<select id="findByCourseId" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	select * from sys_exam_course where id=#{id}
+	</select>
+	<select id="updateByCourse" parameterType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	update sys_exam_course set name=#{name},time=#{time},special=#{special} where id=#{id}
+	</select>
+	<insert id="saveCourse" parameterType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	insert into   sys_exam_course(name,time,special,status) VALUES(#{name},#{time},#{special},#{status})
+	</insert>
+	<delete id="deleteById" parameterType="int">
+	delete from sys_exam_course where id=#{id}
+	</delete>
+	
+	<select id="findListByTc" resultType="com.thinkgem.jeesite.modules.sys.entity.Course">
+	SELECT * FROM sys_exam_course s where s.status=#{status}
+	ORDER BY s.id DESC
+	</select>
+	
+	<!-- 成绩获取 -->
+	<select id="findByExaminationId" parameterType="String" resultType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	select * from sys_stu_course where examination=#{examination} order by id asc
+	</select>
+</mapper>

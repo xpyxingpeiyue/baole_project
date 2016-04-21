@@ -1,0 +1,40 @@
+/**
+* @file:entrance网上报名入口
+* @author:llj
+*
+* @update:2016-03-01
+*/
+
+.entrance-container {
+    width:840px;
+    margin:0 auto;
+}
+/*wrap*/
+.entrance-wrap {
+    width:840px;
+    background: rgba(255,255,255,0.9);
+    background: #fff\9;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 30%;
+    margin-top: -97px;
+    padding-top: 94px;
+    padding-bottom:74px;
+}
+
+/*title*/
+.entrance-wrap h1 {
+    text-align: center;
+}
+
+/*form*/
+.entrance-form {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 96px;
+}
+.entrance-btn-wrap {
+    padding-top: 60px;
+}

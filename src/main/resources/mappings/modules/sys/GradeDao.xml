@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.sys.dao.GradeDao">
+			
+	
+	<insert id="saveGrade" parameterType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	insert into  sys_stu_course(id,examination,name,score) VALUES(#{id},#{examination},#{name},#{score})
+	</insert>
+	<select id="findListByExam" parameterType="com.thinkgem.jeesite.modules.sys.entity.Grade" resultType="hashmap">
+	
+		select * from sys_stu_course where examination in
+	<foreach item="item" index="index" collection="regeist" open="(" separator="," close=")">
+	 #{item.examination}
+	</foreach>
+	order by id
+	</select>
+	
+	<select id="findByid" parameterType="int" resultType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	
+	select * from sys_stu_course where id=#{id}
+	</select>
+	<update id="updateGrade" parameterType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	
+	update sys_stu_course set name=#{name},score=#{score} where id=#{id}
+	</update>
+	<delete id="deleteById" parameterType="int">
+	delete from sys_stu_course where id=#{id}
+	</delete>
+	
+	<insert id="insertGrade" parameterType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	insert into  sys_stu_course(examination,idcard,name,score,status) VALUES(#{examination},#{idcard},#{name},#{score},#{status})
+	</insert>
+	<select id="findListByIdcard" parameterType="string" resultType="com.thinkgem.jeesite.modules.sys.entity.Grade">
+	select * from sys_stu_course where idcard=#{idcard} order by id
+	</select>
+	
+	<delete id="deleteByIdcard" parameterType="string" >
+	delete from sys_stu_course where idcard=#{idcard}
+	</delete>
+	
+	<select id="findListAllIdcard" parameterType="string" resultType="string">
+	SELECT DISTINCT sc.idcard FROM  sys_stu_course sc LEFT JOIN sys_stu_info si on sc.idcard=si.idcard where si.special_class=#{status};
+	</select>
+	
+	<delete id="deleteAllStatus" parameterType="string">
+	delete from sys_stu_course where status=#{status}
+	</delete>
+</mapper>
